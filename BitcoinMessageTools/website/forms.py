@@ -5,7 +5,7 @@ from wtforms.validators import DataRequired
 
 class SignForm(FlaskForm):
 
-    private_key = PasswordField(
+    private_key = StringField(
         label='Private Key',
         validators=[DataRequired()],
     )
@@ -17,6 +17,9 @@ class SignForm(FlaskForm):
     message = TextAreaField(
         label='Message',
         validators=[DataRequired()],
+    )
+    signature = TextAreaField(
+        label='Signature', default=None
     )
     deterministic = BooleanField(
         label='Sign using RFC6979 standard',
@@ -38,7 +41,7 @@ class VerifyForm(FlaskForm):
         label='Message',
         validators=[DataRequired()],
     )
-    signature = StringField(
+    signature = TextAreaField(
         label='Signature',
         validators=[DataRequired()],
     )

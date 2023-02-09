@@ -3,29 +3,40 @@
 {% block content %}
 
 
-<div class="container col-lg-8 controls">
-    <form method="POST" class="form-signin">
+<div class="container col-lg-8 controls" style="margin-top: 60px;">
+    <form method="POST" class="form-horizontal">
         {{ form.hidden_tag() }}
-        <div class="form-group">
-            <label for="address">Bitcoin Address:</label>
-            {{ form.address(class="form-control", placeholder="Enter Bitcoin Address") }}
-        </div>
-        <div class="form-group">
-            <label for="message">Message:</label>
-            {{ form.message(class="form-control", placeholder="Enter your message") }}
-        </div>
-        <div class="form-group">
-            <label for="message">Signature:</label>
-            {{ form.signature(class="form-control", placeholder="Enter your signature") }}
-        </div>
-        <div class="form-check">
-            {{ form.electrum() }}
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="form-group">
+                    <label for="address">Bitcoin Address:</label>
+                    {{ form.address(class="form-control", placeholder="Enter Bitcoin address") }}
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    {{ form.message(class="form-control", placeholder="Enter your message") }}
+                </div>
+                <div class="form-group">
+                    <label for="message">Signature:</label>
+                    {{ form.signature(class="form-control", spellcheck="false", style="resize:none;height: 90px",
+                    placeholder="Enter your signature") }}
+                </div>
+                {{ form.submit(class="btn btn-lg btn-primary") }}
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="optional_parameters">Optional parameters:</label>
 
-            <label class="form-check-label" for="defaultCheck1">
-                {{form.electrum.label}}
-            </label>
+                    <div class="form-check">
+                        {{ form.electrum() }}
+
+                        <label class="form-check-label" for="defaultCheck1">
+                            {{form.electrum.label}}
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
-        {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
 
     </form>
 </div>
