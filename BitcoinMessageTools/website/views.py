@@ -19,11 +19,11 @@ def sign_page():
                 electrum=sign_form.electrum.data,
             )
         except bmt.PrivateKeyError as err:
-            flash(f'Private key is invalid: {err}', 'danger')
+            flash(f'Private key is invalid. {err}', 'danger')
         except bmt.SignatureError as err:
-            flash(f'Signature is invalid: {err}', 'danger')
+            flash(f'Signature is invalid. {err}', 'danger')
         except bmt.PointError as err:
-            flash(f'Point is invalid: {err}', 'danger')
+            flash(f'Point is invalid. {err}', 'danger')
         else:
             flash(f"Message is signed succesfully with address: {address}", 'success')
             sign_form.signature.data = signature
@@ -42,11 +42,11 @@ def verify_page():
                 electrum=verify_form.electrum.data,
             )
         except bmt.PrivateKeyError as err:
-            flash(f'Private key is invalid: {err}', 'danger')
+            flash(f'Private key is invalid. {err}', 'danger')
         except bmt.SignatureError as err:
-            flash(f'Signature is invalid: {err}', 'danger')
+            flash(f'Signature is invalid. {err}', 'danger')
         except bmt.PointError as err:
-            flash(f'Point is invalid: {err}', 'danger')
+            flash(f'Point is invalid. {err}', 'danger')
         else:
             if verified:
                 flash(result, 'success')
