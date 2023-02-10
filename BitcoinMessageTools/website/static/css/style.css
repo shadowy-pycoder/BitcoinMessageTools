@@ -1,10 +1,18 @@
 body {
     background-color: whitesmoke;
+    margin-bottom: 5rem;
 }
 
 
 main {
     margin: 5rem auto 0;
+
+}
+
+.header-container {
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .navbar-dark .navbar-brand {
@@ -19,6 +27,11 @@ main {
 
 span.bitcoin-logo {
     color: #f2a900;
+    font-style: oblique;
+}
+
+span.brand {
+    font-style: oblique;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -31,6 +44,15 @@ span.bitcoin-logo {
     font-weight: 600;
 }
 
+.alert {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    word-wrap: break-word;
+
+}
+
 label.title {
 
     color: #333;
@@ -39,6 +61,7 @@ label.title {
 
 .btn {
     font-weight: 600;
+    margin-bottom: 1rem;
 }
 
 .btn-secondary {
@@ -54,4 +77,8 @@ textarea.form-control {
 
     resize: none;
     height: 6rem;
+}
+
+.form-check {
+    white-space: nowrap;
 }

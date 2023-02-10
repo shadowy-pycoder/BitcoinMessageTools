@@ -25,7 +25,7 @@ def sign_page():
         except bmt.PointError as err:
             flash(f'Point is invalid. {err}', 'danger')
         else:
-            flash(f"Message is signed succesfully with address: {address}", 'success')
+            flash(f"Message is signed with address: {address}", 'success')
             sign_form.signature.data = signature
     return render_template('sign.html', form=sign_form)
 
