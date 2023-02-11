@@ -12,7 +12,7 @@ class SignForm(FlaskForm):
     address_type = SelectField(
         label='Address Type',
         validators=[DataRequired()],
-        choices=[('p2pkh', 'P2PKH (Legacy)'), ('p2wpkh-p2sh', 'P2WPKH-P2SH (Nested SegWit)'), ('p2wpkh', 'P2WPKH (SegWit)')]
+        choices=[('p2pkh', 'Legacy'), ('p2wpkh-p2sh', 'Nested SegWit'), ('p2wpkh', 'SegWit')]
     )
     message = TextAreaField(
         label='Message',

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "bitcoinmessagetools"
+name = "BitcoinMessageTools"
 version = "0.1.0"
 description = "An online web application for signing and verification of bitcoin messages."
 authors = ["Your Name <you@example.com>"]
@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-bitcoin-message-tool = "^0.1.3"
+bitcoin-message-tool = "^0.1.4"
 flask = "^2.2.2"
 flask-wtf = "^1.1.1"
 

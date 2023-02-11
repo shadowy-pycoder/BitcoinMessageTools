@@ -64,14 +64,14 @@ files = [
 
 [[package]]
 name = "bitcoin-message-tool"
-version = "0.1.3"
+version = "0.1.4"
 description = "Bitcoin message signing/verification tool"
 category = "main"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "bitcoin_message_tool-0.1.3-py3-none-any.whl", hash = "sha256:1d39c6ce52f51624b1e81aa056604a3c81db2404c74bd950e79702580f4ea020"},
-    {file = "bitcoin_message_tool-0.1.3.tar.gz", hash = "sha256:c85145bf37b1f78810ff7f810fa994058ab0ac420e1358fbe9fdb8cbcebb618d"},
+    {file = "bitcoin_message_tool-0.1.4-py3-none-any.whl", hash = "sha256:aea4d8b79c677e1eef6b99c489cdf98f30394d803f5be820ad9fe7fdf96eb540"},
+    {file = "bitcoin_message_tool-0.1.4.tar.gz", hash = "sha256:8155458509240b4e5bf83668f0476743cc684c67883d7f87b8dfcb6cfb1cae20"},
 ]
 
 [package.dependencies]
