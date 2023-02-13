@@ -105,7 +105,7 @@ span.brand {
 
 }
 
-label.title {
+.title {
 
     color: var(--TEXT-COLOR);
     font-weight: 600;
@@ -188,4 +188,8 @@ select {
     color: var(--SELECT-TEXT-COLOR);
     border-radius: .25rem;
     border: 1px solid var(--SELECT-BORDER-COLOR);
+}
+
+.error {
+    text-align: center;
 }

@@ -6,7 +6,7 @@ views = Blueprint('views', __name__)
 
 
 @views.route('/', methods=['GET', 'POST'])
-@views.route('/sign', methods=['GET', 'POST'])
+@views.route('/sign/', methods=['GET', 'POST'])
 def sign_page():
     sign_form = SignForm()
     if request.method == "POST":
@@ -30,12 +30,12 @@ def sign_page():
     return render_template('sign.html', form=sign_form)
 
 
-@views.route('/verify', methods=['GET', 'POST'])
+@views.route('/verify/', methods=['GET', 'POST'])
 def verify_page():
     verify_form = VerifyForm()
     if verify_form.validate_on_submit():
         try:
-            verified, pubkey, result = bmt.verify_message(
+            verified, _, result = bmt.verify_message(
                 verify_form.address.data,
                 verify_form.message.data,
                 verify_form.signature.data,
@@ -53,3 +53,7 @@ def verify_page():
             else:
                 flash(result, 'danger')
     return render_template('verify.html', form=verify_form)
+
+
+def page_not_found(e):
+    return render_template('404.html'), 404

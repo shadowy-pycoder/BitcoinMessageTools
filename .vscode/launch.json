@@ -15,6 +15,7 @@
             },
             "args": [
                 "run",
+                "-p 5001",
             ],
             "jinja": true,
             "justMyCode": true
