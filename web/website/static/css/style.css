@@ -1,0 +1,195 @@
+:root {
+    --BG-COLOR: whitesmoke;
+    --BTC-COLOR: #f2a900;
+    --NAV-COLOR: #212529;
+    --NAV-FONT-COLOR: rgba(255, 255, 255, .5);
+    --FORM-BG-COLOR: #fff;
+    --FORM-BG-COLOR-FOCUS: var(--FORM-BG-COLOR);
+    --TEXT-COLOR: #333;
+    --FORM-BORDER-COLOR: rgba(0, 0, 0, .5);
+    --FORM-BORDER-FOCUS-COLOR: rgba(242, 169, 0, 0.9);
+    --FORM-BORDER-SHADOW-COLOR: rgba(242, 169, 0, 0.6);
+    --INPUT-COLOR: var(--TEXT-COLOR);
+    --BTN-TEXT-COLOR: var(--BG-COLOR);
+    --BTN-BG-COLOR: #6c757d;
+    --BTN-BORDER-COLOR: #6c757d;
+    --BTN-HOVER-COLOR: var(--BTN-TEXT-COLOR);
+    --SELECT-BORDER-COLOR: rgba(0, 0, 0, .5);
+    --SELECT-TEXT-COLOR: var(--TEXT-COLOR);
+    --SELECT-BG-COLOR: #fff;
+
+}
+
+
+
+
+@media(prefers-color-scheme: dark) {
+    :root {
+        --BG-COLOR: #212121;
+        --TEXT-COLOR: rgba(255, 255, 255, .8);
+        --FORM-BG-COLOR: #212121;
+        --FORM-BORDER-COLOR: var(--BTC-COLOR);
+        --INPUT-COLOR: var(--BTC-COLOR);
+        --NAV-FONT-COLOR: var(--TEXT-COLOR);
+        --BTN-TEXT-COLOR: var(--TEXT-COLOR);
+        --BTN-BG-COLOR: var(--BG-COLOR);
+        --BTN-BORDER-COLOR: var(--BTC-COLOR);
+        --BTN-HOVER-COLOR: var(--BTC-COLOR);
+        --SELECT-BORDER-COLOR: var(--BTC-COLOR);
+        --SELECT-BG-COLOR: #212121;
+    }
+}
+
+
+body {
+    background-color: var(--BG-COLOR);
+    margin-bottom: 5rem;
+}
+
+
+main {
+    margin: 5rem auto 0;
+
+}
+
+.header-container {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.navbar-dark {
+    color: var(--NAV-COLOR);
+}
+
+.navbar-dark .navbar-brand {
+    font-weight: 600;
+    color: var(--NAV-FONT-COLOR);
+}
+
+.navbar-dark .navbar-brand:hover,
+.navbar-dark .navbar-brand:focus {
+    color: var(--BTC-COLOR);
+
+}
+
+span.bitcoin-logo {
+    color: var(--BTC-COLOR);
+    font-style: oblique;
+
+}
+
+span.brand {
+    font-style: oblique;
+
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    font-weight: 600;
+    color: var(--NAV-FONT-COLOR);
+}
+
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--BTC-COLOR);
+    font-weight: 600;
+}
+
+
+.alert {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    word-wrap: break-word;
+
+}
+
+.title {
+
+    color: var(--TEXT-COLOR);
+    font-weight: 600;
+}
+
+.btn {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.btn-secondary {
+    color: var(--BTN-TEXT-COLOR);
+    background-color: var(--BTN-BG-COLOR);
+    border-color: var(--BTN-BORDER-COLOR);
+}
+
+.btn-secondary:hover {
+    color: var(--BTN-HOVER-COLOR);
+    background-color: var(--BTN-BG-COLOR);
+    border-color: var(--BTN-BORDER-COLOR);
+}
+
+
+.alert {
+    font-weight: 600;
+
+}
+
+textarea.form-control {
+
+    resize: none;
+    height: 6rem;
+}
+
+.form-check {
+    white-space: nowrap;
+    padding-left: 0;
+}
+
+.form-check-label {
+    color: var(--TEXT-COLOR)
+}
+
+.form-control {
+    border: 1px solid var(--FORM-BORDER-COLOR);
+    background-color: var(--FORM-BG-COLOR);
+
+}
+
+.form-control:focus {
+    border-color: var(--FORM-BORDER-FOCUS-COLOR);
+    box-shadow: 0px 0px 5px .2rem var(--FORM-BORDER-SHADOW-COLOR);
+    background-color: var(--FORM-BG-COLOR-FOCUS);
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    background-color: var(--FORM-BG-COLOR);
+    opacity: 1;
+}
+
+.form-control::placeholder {
+    color: var(--TEXT-COLOR);
+    font-weight: initial;
+}
+
+.form-control:focus::placeholder {
+    color: transparent;
+}
+
+textarea.form-control:focus,
+textarea.form-control,
+input.form-control:focus,
+input.form-control {
+    color: var(--INPUT-COLOR);
+}
+
+select {
+    background-color: var(--SELECT-BG-COLOR);
+    color: var(--SELECT-TEXT-COLOR);
+    border-radius: .25rem;
+    border: 1px solid var(--SELECT-BORDER-COLOR);
+}
+
+.error {
+    text-align: center;
+}

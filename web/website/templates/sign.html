@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}Sign Message{% endblock %}
+
+{% block content %}
+
+
+<div class="container col-lg-8 controls">
+    <form method="POST" class="form-horizontal">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class="col-sm-8">
+
+                <div class="form-group">
+
+                    <label class="title" for="private_key">Private Key:</label>
+                    {{ form.private_key(class="form-control", placeholder="Enter your private key",
+                    spellcheck="false")
+                    }}
+                </div>
+
+                <div class="form-group">
+                    <label class="title" for="message">Message:</label>
+                    {{ form.message(class="form-control", spellcheck="false", placeholder="Enter your message") }}
+                </div>
+
+                <div class="form-group">
+                    <label class="title" for="signature">Signature:</label>
+                    {{ form.signature(class="form-control", spellcheck="false", readonly="readonly",) }}
+                </div>
+                {{ form.submit(class="btn btn-lg btn-secondary") }}
+
+            </div>
+
+
+            <div class="col-sm-4">
+
+                <div class="form-group">
+                    <label class="title" for="address_type">Address type:</label>
+                    <br>
+                    {{ form.address_type(id="address_type") }}
+                </div>
+
+                <div class="form-group">
+
+                    <label class="title" for="optional_parameters">Optional parameters:</label>
+
+                    <div class="form-check">
+                        {{ form.deterministic() }}
+                        <label class="form-check-label" for="defaultCheck1">
+                            {{form.deterministic.label}}
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        {{ form.electrum() }}
+                        <label class="form-check-label" for="defaultCheck1">
+                            {{form.electrum.label}}
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </form>
+</div>
+{% endblock %}
