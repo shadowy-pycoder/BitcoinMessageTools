@@ -3,14 +3,10 @@ services:
   web:
     build:
       context: web
-    command: python run.py run -h 0.0.0.0
+      dockerfile: Dockerfile.prod
     restart: unless-stopped
-    volumes:
-      - web/:/app/
-    ports:
-      - 5000:5000
     env_file:
-      - web/.env.dev
+      - web/.env
     networks:
       - flask_network
   proxy:

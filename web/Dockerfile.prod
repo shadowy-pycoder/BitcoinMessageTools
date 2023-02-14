@@ -2,9 +2,6 @@ FROM python:3.10.10-slim AS builder
 
 WORKDIR /app
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends build-essential gcc
 
@@ -29,3 +26,5 @@ USER 999
 ENV PATH="/app/venv/bin:$PATH"
 
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "-w", "3", "run:app"]
+
+

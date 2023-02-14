@@ -3,14 +3,16 @@ services:
   web:
     build:
       context: web
-    command: python run.py run -h 0.0.0.0
+      dockerfile: Dockerfile
     restart: unless-stopped
-    volumes:
-      - web/:/app/
     ports:
       - 5000:5000
-    env_file:
-      - web/.env.dev
+    environment:
+      PYTHONDONTWRITEBYTECOD: 1
+      PYTHONUNBUFFERE: 1
+      DEBUG: 1
+      SECRET_KEY: e4b27c803a43d44a363d14660adf6ee596c4c99a345731f86bf5a8b92afe32be
+
     networks:
       - flask_network
   proxy:
