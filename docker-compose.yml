@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  web:
+    image: flask_app_dev_nginx
+    container_name: flask_app_dev_nginx
+    build:
+      context: web
+    restart: unless-stopped
+    ports:
+      - 5000:5000
+    env_file:
+      - web/.env
+    networks:
+      - flask_network
+  proxy:
+    build:
+      context: proxy
+    restart: unless-stopped
+    ports:
+      - 80:80
+    networks:
+      - flask_network
+networks:
+  flask_network:
