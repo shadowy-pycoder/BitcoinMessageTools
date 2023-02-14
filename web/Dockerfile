@@ -25,6 +25,6 @@ USER 999
 
 ENV PATH="/app/venv/bin:$PATH"
 
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "-w", "3", "run:app"]
+
 
 

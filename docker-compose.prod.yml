@@ -3,8 +3,9 @@ services:
   web:
     build:
       context: web
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     restart: unless-stopped
+    command: gunicorn --bind 0.0.0.0:5000 -w 3 run:app
     env_file:
       - web/.env
     networks:

@@ -5,6 +5,9 @@ services:
       context: web
       dockerfile: Dockerfile
     restart: unless-stopped
+    command: python run.py
+    volumes:
+      - ./web/website/:/app/website
     ports:
       - 5000:5000
     environment:
@@ -12,7 +15,6 @@ services:
       PYTHONUNBUFFERE: 1
       DEBUG: 1
       SECRET_KEY: e4b27c803a43d44a363d14660adf6ee596c4c99a345731f86bf5a8b92afe32be
-
     networks:
       - flask_network
   proxy:
