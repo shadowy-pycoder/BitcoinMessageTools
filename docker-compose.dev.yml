@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  web:
+    image: bitcoinmessagetools-dev
+    container_name: bitcoinmessagetools-dev
+    build:
+      context: web
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./web/website/:/app/website
+    ports:
+      - 5000:5000
+    env_file:
+      - web/.env.dev

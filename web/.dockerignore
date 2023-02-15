@@ -5,3 +5,6 @@ __pycache__/
 
 .coveragerc
 .dockerignore
+pyproject.toml
+poetry.lock
+setup.py

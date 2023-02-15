@@ -1,15 +1,16 @@
 version: "3.8"
 services:
   web:
+    image: bitcoinmessagetools-prod
+    container_name: bitcoinmessagetools-prod
     build:
       context: web
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
     restart: unless-stopped
-    command: gunicorn --bind 0.0.0.0:5000 -w 3 run:app
     env_file:
       - web/.env
     networks:
-      - flask_network
+      - bmt_network
   proxy:
     build:
       context: proxy
@@ -17,6 +18,6 @@ services:
     ports:
       - 80:80
     networks:
-      - flask_network
+      - bmt_network
 networks:
-  flask_network:
+  bmt_network:
