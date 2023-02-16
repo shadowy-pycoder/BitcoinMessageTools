@@ -10,5 +10,4 @@ COPY ./bin/renew /etc/periodic/weekly/renew
 RUN chmod +x /entrypoint.sh \
   && chmod +x /etc/periodic/weekly/renew
 
-# Install certificates and launch
 ENTRYPOINT ../entrypoint.sh $DOMAIN $EMAIL
