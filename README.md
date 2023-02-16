@@ -1,5 +1,3 @@
-# BitcoinMessageTools
-
 BitcoinMessageTools
 ======
 
