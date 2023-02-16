@@ -1,10 +1,68 @@
 server {
-
     listen 80;
-    server_name localhost;
+    listen [::]:80;
+    server_name bitcoinmessage.tools www.bitcoinmessage.tools;
+    location /.well-known/ {
+        root /var/lib/certbot;
+    }
 
     location / {
+        return 301 https://bitcoinmessage.tools$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl http2 default_server;
+    listen [::]:443 ssl http2 default_server;
+
+    # You might want to remove the ``www.<DOMAIN>`` if you're running your app using a subdomain.
+    server_name bitcoinmessage.tools;
+
+    ssl_certificate /etc/letsencrypt/live/bitcoinmessage.tools/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/bitcoinmessage.tools/privkey.pem;
+    ssl_trusted_certificate /etc/letsencrypt/live/bitcoinmessage.tools/chain.pem;
+
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "no-referrer-when-downgrade" always;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+
+    # You might want to change the CSP policy to fit your needs - see https://content-security-policy.com/
+    #add_header Content-Security-Policy "default-src 'self'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self';";
+
+    access_log /var/log/nginx/bitcoinmessage.tools.access.log;
+    error_log /var/log/nginx/bitcoinmessage.tools.error.log warn;
+
+    location / {
+        proxy_http_version 1.1;
+        proxy_cache_bypass $http_upgrade;
+
+        proxy_hide_header X-Powered-By;
+        proxy_hide_header Server;
+        proxy_hide_header X-AspNetMvc-Version;
+        proxy_hide_header X-AspNet-Version;
+
+        proxy_set_header Proxy "";
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Port $server_port;
+
         proxy_pass http://web:5000;
     }
+    location /static/ {
+        expires 7d;
+        add_header Pragma public;
+        add_header Cache-Control public;
+        alias /app/web/website/static/;
+        proxy_pass http://web:5000;
+    }
+
+
 
 }

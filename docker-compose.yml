@@ -5,7 +5,7 @@ services:
     container_name: bitcoinmessagetools-prod
     build:
       context: web
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     restart: unless-stopped
     env_file:
       - web/.env
@@ -17,6 +17,9 @@ services:
     restart: unless-stopped
     ports:
       - 80:80
+      - 443:443
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
     networks:
       - bmt_network
 networks:
