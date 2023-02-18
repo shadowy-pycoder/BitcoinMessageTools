@@ -12,3 +12,17 @@ services:
       - 5000:5000
     env_file:
       - web/.env.dev
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "bash",
+          "-c",
+          "curl",
+          "-f",
+          "http://localhost:5000/up"
+        ]
+      interval: 60s
+      timeout: 30s
+      retries: 3
+      start_period: 5s

@@ -54,6 +54,9 @@ def verify_page():
                 flash(result, 'danger')
     return render_template('verify.html', form=verify_form)
 
+@views.route('/up/')
+def up():
+    return "Healthy: OK"
 
 def page_not_found(e):
     return render_template('404.html'), 404

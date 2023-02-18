@@ -10,4 +10,4 @@ COPY ./bin/renew /etc/periodic/weekly/renew
 RUN chmod +x /entrypoint.sh \
   && chmod +x /etc/periodic/weekly/renew
 
-ENTRYPOINT ../entrypoint.sh $DOMAIN $EMAIL
+#ENTRYPOINT ../entrypoint.sh $DOMAIN $EMAIL

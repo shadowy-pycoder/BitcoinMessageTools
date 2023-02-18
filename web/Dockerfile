@@ -4,6 +4,7 @@ WORKDIR /app
 
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends build-essential gcc
+RUN apt-get install -y curl
 
 RUN python -m venv /app/venv
 ENV PATH="/app/venv/bin:$PATH"
