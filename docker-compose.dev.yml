@@ -10,8 +10,6 @@ services:
       - ./web/website/:/app/website
     ports:
       - 5000:5000
-    env_file:
-      - web/.env.dev
     healthcheck:
       test:
         [

@@ -25,6 +25,8 @@ COPY --chown=python:python . .
 USER 999
 
 ENV PATH="/app/venv/bin:$PATH"
+ENV DEBUG=True
+ENV SECRET_KEY=123
 
 CMD ["python", "run.py"]
 
