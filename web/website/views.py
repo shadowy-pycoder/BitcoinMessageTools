@@ -5,7 +5,7 @@ from bitcoin_message_tool import bmt
 views = Blueprint('views', __name__)
 
 
-@views.route('/sign/', methods=['GET', 'POST'])
+@views.route('/sign', methods=['GET', 'POST'])
 def sign_page():
     sign_form = SignForm()
     if request.method == "POST":
@@ -29,7 +29,7 @@ def sign_page():
     return render_template('sign.html', form=sign_form)
 
 @views.route('/', methods=['GET', 'POST'])
-@views.route('/verify/', methods=['GET', 'POST'])
+@views.route('/verify', methods=['GET', 'POST'])
 def verify_page():
     verify_form = VerifyForm()
     if verify_form.validate_on_submit():
@@ -53,7 +53,7 @@ def verify_page():
                 flash(result, 'danger')
     return render_template('verify.html', form=verify_form)
 
-@views.route('/up/')
+@views.route('/up', methods=['GET'])
 def up():
     return "Healthy: OK"
 
