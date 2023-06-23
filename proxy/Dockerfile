@@ -1,4 +1,4 @@
-FROM nginx:1.25.1-alpine
+FROM nginx:1.23.3-alpine
 RUN apk add --no-cache certbot
 RUN rm /etc/nginx/nginx.conf && rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/
