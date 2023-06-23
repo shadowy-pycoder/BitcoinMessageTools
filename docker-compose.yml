@@ -4,11 +4,11 @@ services:
     image: bitcoinmessagetools-prod
     container_name: bitcoinmessagetools-prod
     build:
-      context: web
+      context: ${APP_FOLDER}
       dockerfile: Dockerfile
     restart: unless-stopped
     env_file:
-      - web/.env
+      - ${APP_FOLDER}/.env
     healthcheck:
       test:
         [
@@ -17,7 +17,7 @@ services:
           "-c",
           "curl",
           "-f",
-          "http://localhost:5000/up"
+          "https://${DOMAIN}/up"
         ]
       interval: 60s
       timeout: 30s
@@ -28,6 +28,10 @@ services:
   proxy:
     build:
       context: proxy
+      args:
+        DOMAIN: ${DOMAIN}
+        EMAIL: ${EMAIL}
+        FLASK: web
     restart: unless-stopped
     ports:
       - 80:80

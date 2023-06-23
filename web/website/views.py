@@ -5,7 +5,6 @@ from bitcoin_message_tool import bmt
 views = Blueprint('views', __name__)
 
 
-@views.route('/', methods=['GET', 'POST'])
 @views.route('/sign/', methods=['GET', 'POST'])
 def sign_page():
     sign_form = SignForm()
@@ -29,7 +28,7 @@ def sign_page():
             sign_form.signature.data = signature
     return render_template('sign.html', form=sign_form)
 
-
+@views.route('/', methods=['GET', 'POST'])
 @views.route('/verify/', methods=['GET', 'POST'])
 def verify_page():
     verify_form = VerifyForm()
