@@ -96,14 +96,22 @@ span.brand {
 }
 
 
-.alert {
+.default-alert {
     position: absolute;
     left: 0;
     right: 0;
     text-align: center;
     word-wrap: break-word;
-
 }
+
+.disclaimer-alert {
+    position: static;
+    left: 0;
+    right: 0;
+    text-align: center;
+    word-wrap: break-word;
+}
+
 
 .title {
 
